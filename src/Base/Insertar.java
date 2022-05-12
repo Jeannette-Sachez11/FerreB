@@ -75,31 +75,25 @@ public class Insertar {
         return !respuesta;//retorno de respuesta
     }
  
-    public boolean insertarMateriales(String codigo_barras, int id_categoria, String nombre, float precio_venta, String marca, int stock ){//metodo para insertar materiales
-        sql = "Insert into Materiales (codigo_barras, id_categoria, nombre, precio_venta, marca, stock) values ('"+codigo_barras+"', '"+id_categoria+"', '"+nombre+"', '"+precio_venta+"', '"+marca+"', '"+stock+"')";
+   public boolean insertarMateriales(String codigo_barras,int id_categoria, String nombre, float precio_venta,String marca, int stock){
+        sql="insert into materiales values('"+codigo_barras+"',"+id_categoria+",'"+nombre+"',"+precio_venta+",'"+marca+"',"+stock+");";
         respuesta = true;
-        
         try{
-            st = conex.createStatement();
-            respuesta = st.execute(sql);
+            st=conex.createStatement();
+            respuesta=st.execute(sql);
             System.out.println(respuesta);
             
-        }catch(Exception e)    
-        {
-            JOptionPane.showMessageDialog(null,e.getMessage());
-            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage() );
         }finally{
             try{
                 st.close();//cierra la conexion
-                
             }catch(Exception ex){
                 JOptionPane.showMessageDialog(null,ex.getMessage() );
                 System.out.println(ex.getMessage());
-                
             }
         }
-        
-        return !respuesta;//retorno de respuesta
+        return !respuesta;
     }
  
     public boolean insertarDetaCompra(){ //metodo para insertar

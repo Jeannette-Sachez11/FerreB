@@ -14,12 +14,17 @@ import javax.swing.*;
 public class Ventana_admin extends javax.swing.JFrame {
     Insertar in;
     Eliminar elim;
+    Buscar bu;
+    Actualizar ac;
 
     /**
      * Creates new form Ventana_admin
      */
     public Ventana_admin() {
         in= new Insertar();
+        elim= new Eliminar();
+        bu=new Buscar();
+        ac= new Actualizar();
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -28,18 +33,32 @@ public class Ventana_admin extends javax.swing.JFrame {
     //---------------------------------------------------Metodos para limpiar-------------------------------------------
     public void limpiarProveedor()
     {
-        Nombre_Proveedortxt.setText(" ");
-        Telefono_Proveedortxt.setText(" ");
-        rfc_proveedortxt.setText(" ");
+        Nombre_Proveedortxt.setText("");
+        Telefono_Proveedortxt.setText("");
+        rfc_proveedortxt.setText("");
     }
     public void limpiarCategoria()
     {
-        NombreCatetxt.setText(" ");
-        Descripciontxt.setText(" ");
+        NombreCatetxt.setText("");
+        Descripciontxt.setText("");
     }
     public void limpiarMaterial()
     {
+        codigobarratxt.setText("");
+        id_categoriatxt.setText("");
+        nombre_materialtxt.setText("");
+        PrecioMaterial.setText("");
+        marcatxt1.setText("");
+        stocktxt.setText("");
         
+        
+    }
+     
+    public void limpiarbusquedaCat()
+    {
+        buscar_cattxt.setText("");
+        NombreCatetxt1.setText("");
+        Descripciontxt1.setText("");
     }
 
     /**
@@ -74,13 +93,14 @@ public class Ventana_admin extends javax.swing.JFrame {
         Boton_EliminarCate = new javax.swing.JButton();
         Buscar_Cat = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         buscar_cattxt = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        NombreCatetxt1 = new javax.swing.JTextField();
+        jLabel89 = new javax.swing.JLabel();
+        Descripciontxt1 = new javax.swing.JTextField();
+        BuscarCate = new javax.swing.JButton();
         Actualizar = new javax.swing.JPanel();
         jLabel45 = new javax.swing.JLabel();
         actualizarDescripcion = new javax.swing.JTextField();
@@ -122,15 +142,20 @@ public class Ventana_admin extends javax.swing.JFrame {
         ActualizarNomP = new javax.swing.JTextField();
         Boton_ActualProvee = new javax.swing.JButton();
         BuscarProveedorA = new javax.swing.JButton();
+        jLabel43 = new javax.swing.JLabel();
+        buscar_provetxt1 = new javax.swing.JTextField();
         Buscar_Proveedor = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         buscar_provetxt = new javax.swing.JTextField();
         BuscarProveedor = new javax.swing.JButton();
-        MostarProveedores = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        jLabel88 = new javax.swing.JLabel();
+        Nombre_Proveedortxt1 = new javax.swing.JTextField();
+        Telefono_Proveedortxt1 = new javax.swing.JTextField();
+        rfc_proveedortxt1 = new javax.swing.JTextField();
         Panel_Materiales = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         Guardar_Material = new javax.swing.JPanel();
@@ -144,7 +169,7 @@ public class Ventana_admin extends javax.swing.JFrame {
         stocktxt = new javax.swing.JTextField();
         PrecioMaterial = new javax.swing.JTextField();
         nombre_materialtxt = new javax.swing.JTextField();
-        nom_categoriatxt = new javax.swing.JTextField();
+        id_categoriatxt = new javax.swing.JTextField();
         codigobarratxt = new javax.swing.JTextField();
         Boton_GuardarMaterial = new javax.swing.JButton();
         jLabel33 = new javax.swing.JLabel();
@@ -168,12 +193,19 @@ public class Ventana_admin extends javax.swing.JFrame {
         Buscar_Material = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jSeparator17 = new javax.swing.JSeparator();
-        jLabel43 = new javax.swing.JLabel();
         BuscarMaterial = new javax.swing.JButton();
-        MostarMaterial = new javax.swing.JButton();
         buscar_Material = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        nombreMaterial_txt = new javax.swing.JTextField();
+        jLabel92 = new javax.swing.JLabel();
+        id_categoriatxt2 = new javax.swing.JTextField();
+        jLabel94 = new javax.swing.JLabel();
+        PrecioMaterial2 = new javax.swing.JTextField();
+        jLabel95 = new javax.swing.JLabel();
+        marcatxt3 = new javax.swing.JTextField();
+        jLabel96 = new javax.swing.JLabel();
+        stocktxt2 = new javax.swing.JTextField();
         Eliminar_Material = new javax.swing.JPanel();
         jLabel32 = new javax.swing.JLabel();
         jSeparator18 = new javax.swing.JSeparator();
@@ -221,8 +253,6 @@ public class Ventana_admin extends javax.swing.JFrame {
         BuscarVenta = new javax.swing.JButton();
         MostrarVentas = new javax.swing.JButton();
         buscar_Venta = new javax.swing.JTextField();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
         Eliminar_Venta = new javax.swing.JPanel();
         jLabel29 = new javax.swing.JLabel();
         jSeparator12 = new javax.swing.JSeparator();
@@ -263,8 +293,6 @@ public class Ventana_admin extends javax.swing.JFrame {
         buscarCompratxt = new javax.swing.JTextField();
         buscarCompra = new javax.swing.JButton();
         MostrarCompras = new javax.swing.JButton();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
         Eliminar_Compra = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jSeparator14 = new javax.swing.JSeparator();
@@ -421,40 +449,11 @@ public class Ventana_admin extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Categoría:");
+        jLabel5.setText("Id categoria:");
         Buscar_Cat.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 115, -1, -1));
-
-        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Id categoria", "Nombre de la categoría", "Descripción"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        Buscar_Cat.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 720, 126));
 
         buscar_cattxt.setBorder(null);
         Buscar_Cat.add(buscar_cattxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 153, 211, 27));
-
-        jButton1.setBackground(new java.awt.Color(26, 72, 142));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
-        jButton1.setText("Buscar");
-        jButton1.setBorder(null);
-        Buscar_Cat.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 102, 80, 29));
-
-        jButton2.setBackground(new java.awt.Color(26, 72, 142));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mostrar.png"))); // NOI18N
-        jButton2.setText("Mostar todos los datos");
-        jButton2.setBorder(null);
-        Buscar_Cat.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(358, 149, 153, 34));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -464,6 +463,35 @@ public class Ventana_admin extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         Buscar_Cat.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 451, 10));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Nombre de la categoría:");
+        Buscar_Cat.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+
+        NombreCatetxt1.setBorder(null);
+        Buscar_Cat.add(NombreCatetxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 237, 30));
+
+        jLabel89.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel89.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel89.setText("Descrpción");
+        Buscar_Cat.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
+
+        Descripciontxt1.setBorder(null);
+        Buscar_Cat.add(Descripciontxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 237, 30));
+
+        BuscarCate.setBackground(new java.awt.Color(26, 72, 142));
+        BuscarCate.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BuscarCate.setForeground(new java.awt.Color(255, 255, 255));
+        BuscarCate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
+        BuscarCate.setText("Buscar");
+        BuscarCate.setBorder(null);
+        BuscarCate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarCateActionPerformed(evt);
+            }
+        });
+        Buscar_Cat.add(BuscarCate, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 120, 40));
 
         jTabbedPane2.addTab("Buscar", Buscar_Cat);
 
@@ -551,11 +579,6 @@ public class Ventana_admin extends javax.swing.JFrame {
 
         rfc_proveedortxt.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         rfc_proveedortxt.setBorder(null);
-        rfc_proveedortxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rfc_proveedortxtActionPerformed(evt);
-            }
-        });
         Guardar_Proveedor.add(rfc_proveedortxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 220, 27));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/prove.png"))); // NOI18N
@@ -631,52 +654,46 @@ public class Ventana_admin extends javax.swing.JFrame {
         jTabbedPane3.addTab("Eliminar", Eliminar_Proveedor);
 
         jPanel3.setBackground(new java.awt.Color(9, 33, 71));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel48.setForeground(new java.awt.Color(255, 255, 255));
         jLabel48.setText("Actualizar Proveedor");
-        jPanel3.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jSeparator21.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel3.add(jSeparator21, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 570, 13));
 
         jLabel49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Actualizar.png"))); // NOI18N
-        jPanel3.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         jLabel50.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel50.setForeground(new java.awt.Color(255, 255, 255));
         jLabel50.setText("Nombre del Proveedor:");
-        jPanel3.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel51.setForeground(new java.awt.Color(255, 255, 255));
         jLabel51.setText("Telefono:");
-        jPanel3.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
 
         jLabel52.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel52.setForeground(new java.awt.Color(255, 255, 255));
         jLabel52.setText("RFC:");
-        jPanel3.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, -1, -1));
 
         ActualizarTelP.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         ActualizarTelP.setBorder(null);
-        jPanel3.add(ActualizarTelP, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 220, 27));
 
         ActualizarRFCP.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         ActualizarRFCP.setBorder(null);
-        jPanel3.add(ActualizarRFCP, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 220, 27));
 
         ActualizarNomP.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         ActualizarNomP.setBorder(null);
-        jPanel3.add(ActualizarNomP, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 220, 27));
 
         Boton_ActualProvee.setBackground(new java.awt.Color(26, 72, 142));
         Boton_ActualProvee.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         Boton_ActualProvee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Actualizar_2.png"))); // NOI18N
         Boton_ActualProvee.setText("Actualizar");
         Boton_ActualProvee.setBorder(null);
-        jPanel3.add(Boton_ActualProvee, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 180, 40));
+        Boton_ActualProvee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_ActualProveeActionPerformed(evt);
+            }
+        });
 
         BuscarProveedorA.setBackground(new java.awt.Color(26, 72, 142));
         BuscarProveedorA.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -684,7 +701,83 @@ public class Ventana_admin extends javax.swing.JFrame {
         BuscarProveedorA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         BuscarProveedorA.setText("Buscar");
         BuscarProveedorA.setBorder(null);
-        jPanel3.add(BuscarProveedorA, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, 90, 29));
+
+        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel43.setText("Ide del proveedor:");
+
+        buscar_provetxt1.setBorder(null);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(230, 230, 230)
+                        .addComponent(jLabel49)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel48))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(Boton_ActualProvee, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(209, 209, 209)
+                                .addComponent(jLabel51))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(240, 240, 240)
+                                .addComponent(jLabel52))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(115, 115, 115)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel50)
+                                    .addComponent(jLabel43))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ActualizarRFCP, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ActualizarTelP, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(buscar_provetxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(BuscarProveedorA, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ActualizarNomP, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(126, 126, 126))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel48))
+                .addGap(10, 10, 10)
+                .addComponent(jSeparator21, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BuscarProveedorA, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscar_provetxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43))
+                .addGap(19, 19, 19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarNomP, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel50))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel51)
+                    .addComponent(ActualizarTelP, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel52)
+                    .addComponent(ActualizarRFCP, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addComponent(Boton_ActualProvee, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         jTabbedPane3.addTab("Actualizar", jPanel3);
 
@@ -702,11 +795,11 @@ public class Ventana_admin extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Nombre del proveedor:");
-        Buscar_Proveedor.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        jLabel10.setText("Ide del proveedor:");
+        Buscar_Proveedor.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, -1, -1));
 
         buscar_provetxt.setBorder(null);
-        Buscar_Proveedor.add(buscar_provetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 211, 27));
+        Buscar_Proveedor.add(buscar_provetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 211, 27));
 
         BuscarProveedor.setBackground(new java.awt.Color(26, 72, 142));
         BuscarProveedor.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -714,31 +807,39 @@ public class Ventana_admin extends javax.swing.JFrame {
         BuscarProveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         BuscarProveedor.setText("Buscar");
         BuscarProveedor.setBorder(null);
+        BuscarProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarProveedorActionPerformed(evt);
+            }
+        });
         Buscar_Proveedor.add(BuscarProveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 80, 29));
 
-        MostarProveedores.setBackground(new java.awt.Color(26, 72, 142));
-        MostarProveedores.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        MostarProveedores.setForeground(new java.awt.Color(255, 255, 255));
-        MostarProveedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mostrar.png"))); // NOI18N
-        MostarProveedores.setText("Mostar todos los datos");
-        MostarProveedores.setBorder(null);
-        Buscar_Proveedor.add(MostarProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 153, 34));
+        jLabel86.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel86.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel86.setText("Nombre del Proveedor:");
+        Buscar_Proveedor.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
 
-        jTable2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null}
-            },
-            new String [] {
-                "Id Proveedor", "Nombre proveedor", "Telefono", "RFC"
-            }
-        ));
-        jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(3).setHeaderValue("Precio venta");
-        }
+        jLabel87.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel87.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel87.setText("Telefono:");
+        Buscar_Proveedor.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
-        Buscar_Proveedor.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 690, 126));
+        jLabel88.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel88.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel88.setText("RFC:");
+        Buscar_Proveedor.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+
+        Nombre_Proveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Nombre_Proveedortxt1.setBorder(null);
+        Buscar_Proveedor.add(Nombre_Proveedortxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 220, 27));
+
+        Telefono_Proveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        Telefono_Proveedortxt1.setBorder(null);
+        Buscar_Proveedor.add(Telefono_Proveedortxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 220, 27));
+
+        rfc_proveedortxt1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        rfc_proveedortxt1.setBorder(null);
+        Buscar_Proveedor.add(rfc_proveedortxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, 220, 27));
 
         jTabbedPane3.addTab("Buscar", Buscar_Proveedor);
 
@@ -780,8 +881,8 @@ public class Ventana_admin extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("Nombre de la Categoria:");
-        Guardar_Material.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jLabel19.setText("Ide de la Categoria:");
+        Guardar_Material.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -794,7 +895,7 @@ public class Ventana_admin extends javax.swing.JFrame {
         Guardar_Material.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
         stocktxt.setBorder(null);
-        Guardar_Material.add(stocktxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 260, 27));
+        Guardar_Material.add(stocktxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 260, 27));
 
         PrecioMaterial.setBorder(null);
         Guardar_Material.add(PrecioMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 260, 27));
@@ -802,8 +903,8 @@ public class Ventana_admin extends javax.swing.JFrame {
         nombre_materialtxt.setBorder(null);
         Guardar_Material.add(nombre_materialtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 260, 27));
 
-        nom_categoriatxt.setBorder(null);
-        Guardar_Material.add(nom_categoriatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 260, 27));
+        id_categoriatxt.setBorder(null);
+        Guardar_Material.add(id_categoriatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 260, 27));
 
         codigobarratxt.setBorder(null);
         Guardar_Material.add(codigobarratxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 260, 27));
@@ -949,7 +1050,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                     .addComponent(marcatxt2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addComponent(Boton_ActualMaterial, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Actualizar", Actualizar_Material);
@@ -965,47 +1066,66 @@ public class Ventana_admin extends javax.swing.JFrame {
         jSeparator17.setForeground(new java.awt.Color(255, 255, 255));
         Buscar_Material.add(jSeparator17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 620, 20));
 
-        jLabel43.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel43.setText("Nombre del Material:");
-        Buscar_Material.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
-
         BuscarMaterial.setBackground(new java.awt.Color(26, 72, 142));
         BuscarMaterial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         BuscarMaterial.setForeground(new java.awt.Color(255, 255, 255));
         BuscarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/buscar.png"))); // NOI18N
         BuscarMaterial.setText("Buscar");
         BuscarMaterial.setBorder(null);
-        Buscar_Material.add(BuscarMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 80, 29));
-
-        MostarMaterial.setBackground(new java.awt.Color(26, 72, 142));
-        MostarMaterial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        MostarMaterial.setForeground(new java.awt.Color(255, 255, 255));
-        MostarMaterial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mostrar.png"))); // NOI18N
-        MostarMaterial.setText("Mostar todos los datos");
-        MostarMaterial.setBorder(null);
-        Buscar_Material.add(MostarMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 160, 153, 34));
+        BuscarMaterial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarMaterialActionPerformed(evt);
+            }
+        });
+        Buscar_Material.add(BuscarMaterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 150, 50));
 
         buscar_Material.setBorder(null);
-        Buscar_Material.add(buscar_Material, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 211, 27));
+        Buscar_Material.add(buscar_Material, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 211, 27));
 
-        jTable3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Codigo de barras", "id categoria", "Nombre", "Precio venta", "Marca", "Stock"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(3).setHeaderValue("Precio venta");
-            jTable3.getColumnModel().getColumn(4).setHeaderValue("Marca");
-            jTable3.getColumnModel().getColumn(5).setHeaderValue("Stock");
-        }
+        jLabel90.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel90.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel90.setText("Codigo de barras:");
+        Buscar_Material.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
 
-        Buscar_Material.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 750, 126));
+        jLabel91.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel91.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel91.setText("Ide de la Categoria:");
+        Buscar_Material.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, 20));
+
+        nombreMaterial_txt.setBorder(null);
+        Buscar_Material.add(nombreMaterial_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 210, 27));
+
+        jLabel92.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel92.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel92.setText("Nombre del Material:");
+        Buscar_Material.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+
+        id_categoriatxt2.setBorder(null);
+        Buscar_Material.add(id_categoriatxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 260, 27));
+
+        jLabel94.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel94.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel94.setText("Precio:");
+        Buscar_Material.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
+
+        PrecioMaterial2.setBorder(null);
+        Buscar_Material.add(PrecioMaterial2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 260, 27));
+
+        jLabel95.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel95.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel95.setText("Marca:");
+        Buscar_Material.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
+
+        marcatxt3.setBorder(null);
+        Buscar_Material.add(marcatxt3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 260, 27));
+
+        jLabel96.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel96.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel96.setText("Stock:");
+        Buscar_Material.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+
+        stocktxt2.setBorder(null);
+        Buscar_Material.add(stocktxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 260, 27));
 
         jTabbedPane4.addTab("Buscar", Buscar_Material);
 
@@ -1076,7 +1196,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                 .addComponent(eliminarMateTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(Boton_EliminarProve1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(352, Short.MAX_VALUE))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         jTabbedPane4.addTab("Eliminar", Eliminar_Material);
@@ -1373,7 +1493,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                     .addComponent(jLabel84))
                 .addGap(45, 45, 45)
                 .addComponent(Boton_ActualVen, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jTabbedPane5.addTab("Actualizar", Actualizar_Venta);
@@ -1412,19 +1532,6 @@ public class Ventana_admin extends javax.swing.JFrame {
 
         buscar_Venta.setBorder(null);
         Buscar_Venta.add(buscar_Venta, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 211, 27));
-
-        jTable4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null}
-            },
-            new String [] {
-                "Id venta", "Monto final", "Fecha"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable4);
-
-        Buscar_Venta.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 750, 126));
 
         jTabbedPane5.addTab("Buscar", Buscar_Venta);
 
@@ -1672,19 +1779,6 @@ public class Ventana_admin extends javax.swing.JFrame {
         MostrarCompras.setBorder(null);
         Buscar_Compra.add(MostrarCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 153, 34));
 
-        jTable6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null}
-            },
-            new String [] {
-                "Id compra", "id  proveedor", "Monto ", "fecha"
-            }
-        ));
-        jScrollPane6.setViewportView(jTable6);
-
-        Buscar_Compra.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 750, 126));
-
         jTabbedPane6.addTab("Buscar", Buscar_Compra);
 
         Eliminar_Compra.setBackground(new java.awt.Color(9, 33, 71));
@@ -1752,7 +1846,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                 .addComponent(eliminarComTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(Boton_EliminarProve2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(393, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Eliminar", Eliminar_Compra);
@@ -1852,7 +1946,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                     .addComponent(ACmonto_f2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(Boton_ActualProvee1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         jTabbedPane6.addTab("Actualizar", Actualizar_Compra);
@@ -1934,12 +2028,12 @@ public class Ventana_admin extends javax.swing.JFrame {
                 .addGroup(Ingresos_diaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel70)
                     .addComponent(montoIntxt, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addContainerGap(323, Short.MAX_VALUE))
             .addGroup(Ingresos_diaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(Ingresos_diaLayout.createSequentialGroup()
                     .addGap(71, 71, 71)
                     .addComponent(jLabel71)
-                    .addContainerGap(503, Short.MAX_VALUE)))
+                    .addContainerGap(425, Short.MAX_VALUE)))
         );
 
         jTabbedPane7.addTab("Ingresos por día", Ingresos_dia);
@@ -2010,7 +2104,7 @@ public class Ventana_admin extends javax.swing.JFrame {
                 .addGroup(IngresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel74)
                     .addComponent(montoIntxt1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(266, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         jTabbedPane7.addTab("Ingresos", Ingresos);
@@ -2038,7 +2132,7 @@ public class Ventana_admin extends javax.swing.JFrame {
         );
         Panel_EgresosLayout.setVerticalGroup(
             Panel_EgresosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 621, Short.MAX_VALUE)
+            .addGap(0, 543, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Egresos", Panel_Egresos);
@@ -2274,15 +2368,36 @@ public class Ventana_admin extends javax.swing.JFrame {
 
     private void Boton_GuardarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_GuardarMaterialActionPerformed
         // TODO add your handling code here:
+        String codigo_barras = null, nombre = null, marca = null;
+        int id_categoria, stock = 0;
+        float precio_venta = 0;
+        
+        codigo_barras = codigobarratxt.getText();
+        id_categoria = Integer.parseInt(id_categoriatxt.getText());
+        nombre = nombre_materialtxt.getText();
+        precio_venta= Float.parseFloat(PrecioMaterial.getText());
+        marca = marcatxt1.getText();
+        stock = Integer.parseInt(stocktxt.getText());
+        
+        if (!codigo_barras.equals(null)) {
+             
+            if(in.insertarMateriales(codigo_barras, id_categoria, nombre, precio_venta, marca, stock))
+            {
+               JOptionPane.showMessageDialog(rootPane, "Material Guardado");
+            }else{
+                JOptionPane.showMessageDialog(rootPane, "El material no ha sido guardado");
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Favor de ingresar el codigo de barra!!");
+        }
+        
+        
     }//GEN-LAST:event_Boton_GuardarMaterialActionPerformed
 
     private void Boton_EliminarCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarCateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Boton_EliminarCateActionPerformed
-
-    private void rfc_proveedortxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rfc_proveedortxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rfc_proveedortxtActionPerformed
 
     private void Boton_EliminarProveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarProveActionPerformed
         // TODO add your handling code here:
@@ -2315,6 +2430,89 @@ public class Ventana_admin extends javax.swing.JFrame {
     private void Boton_EliminarVenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_EliminarVenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Boton_EliminarVenActionPerformed
+
+    private void BuscarProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarProveedorActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            int id_prove=Integer.parseInt(buscar_provetxt.getText());
+            if(id_prove!=0)
+            {
+                String Datos[]= bu.buscarProveedor(id_prove);
+                Nombre_Proveedortxt1.setText(Datos[0]);
+                Telefono_Proveedortxt1.setText(Datos[1]);
+                rfc_proveedortxt1.setText(Datos[2]);
+            }else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Ingrese el ide del proveedor!!");
+            }
+        }catch(Exception n)
+        {
+        }
+        
+       
+    }//GEN-LAST:event_BuscarProveedorActionPerformed
+
+    private void BuscarMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarMaterialActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            String codigo_barras=buscar_Material.getText();
+            if(!codigo_barras.equals(null))
+            {
+                String Datos[]= bu.buscarMateriales(codigo_barras);
+                id_categoriatxt2.setText(Datos[0]);
+                nombreMaterial_txt.setText(Datos[1]);
+                PrecioMaterial2.setText(Datos[2]);
+                marcatxt3.setText(Datos[3]);
+                stocktxt2.setText(Datos[4]);
+                
+            }else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Ingrese el ide de la categoria!!");
+            }
+        }catch(Exception n)
+        {
+        }
+        
+    }//GEN-LAST:event_BuscarMaterialActionPerformed
+
+    private void BuscarCateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarCateActionPerformed
+        // TODO add your handling code here:
+        try{
+            int id_categoria= Integer.parseInt(buscar_cattxt.getText());
+            if(id_categoria!=0)
+            {
+                String Datos[]=bu.buscarCategoria(id_categoria);
+                NombreCatetxt1.setText(Datos[0]);
+                Descripciontxt1.setText(Datos[1]);
+                        
+            }else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Ingrese el ide de la categoria!!");
+            }
+        }catch(Exception n)
+        {
+        }
+        
+    }//GEN-LAST:event_BuscarCateActionPerformed
+
+    private void Boton_ActualProveeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ActualProveeActionPerformed
+        // TODO add your handling code here:
+        int  id_proveedor=Integer.parseInt(buscar_provetxt1.getText());
+        String Nombre=ActualizarNomP.getText();
+        String Telefono=ActualizarTelP.getText();
+        String RFC=ActualizarRFCP.getText();
+        
+        int res=ac.actualizarProveedor(id_proveedor, Nombre, Telefono, RFC);
+        if (res==1) {
+            JOptionPane.showMessageDialog(rootPane, "Proveedor actualizado");
+        }else
+        {
+               JOptionPane.showMessageDialog(rootPane, "Error al actualizar!!");
+        }
+        
+    }//GEN-LAST:event_Boton_ActualProveeActionPerformed
    
     
     /**
@@ -2383,6 +2581,7 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JButton BuscarActuaCat;
     private javax.swing.JButton BuscarActuaCat1;
     private javax.swing.JButton BuscarActuaVen;
+    private javax.swing.JButton BuscarCate;
     private javax.swing.JButton BuscarMaterial;
     private javax.swing.JButton BuscarProveedor;
     private javax.swing.JButton BuscarProveedorA;
@@ -2397,6 +2596,7 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JLabel CerrarSL;
     private javax.swing.JLabel ComprasL1;
     private javax.swing.JTextField Descripciontxt;
+    private javax.swing.JTextField Descripciontxt1;
     private javax.swing.JLabel EgresosL;
     private javax.swing.JPanel Eliminar_Cat;
     private javax.swing.JPanel Eliminar_Compra;
@@ -2413,12 +2613,12 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JLabel IngresosL;
     private javax.swing.JPanel Ingresos_dia;
     private javax.swing.JLabel MeterialesL;
-    private javax.swing.JButton MostarMaterial;
-    private javax.swing.JButton MostarProveedores;
     private javax.swing.JButton MostrarCompras;
     private javax.swing.JButton MostrarVentas;
     private javax.swing.JTextField NombreCatetxt;
+    private javax.swing.JTextField NombreCatetxt1;
     private javax.swing.JTextField Nombre_Proveedortxt;
+    private javax.swing.JTextField Nombre_Proveedortxt1;
     private javax.swing.JPanel Panel_Boton;
     private javax.swing.JPanel Panel_Compra;
     private javax.swing.JPanel Panel_Egresos;
@@ -2429,8 +2629,10 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_categoria;
     private javax.swing.JTextField PrecioMaterial;
     private javax.swing.JTextField PrecioMaterial1;
+    private javax.swing.JTextField PrecioMaterial2;
     private javax.swing.JLabel ProvvedoresL;
     private javax.swing.JTextField Telefono_Proveedortxt;
+    private javax.swing.JTextField Telefono_Proveedortxt1;
     private javax.swing.JLabel VentasL;
     private javax.swing.JTextField actualizarDescripcion;
     private javax.swing.JButton buscarCompra;
@@ -2439,6 +2641,7 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JTextField buscar_Venta;
     private javax.swing.JTextField buscar_cattxt;
     private javax.swing.JTextField buscar_provetxt;
+    private javax.swing.JTextField buscar_provetxt1;
     private javax.swing.JTextField canCtxt;
     private javax.swing.JTextField canCtxt1;
     private javax.swing.JTextField cantidadVentxt;
@@ -2464,8 +2667,8 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JTextField fechatxt1;
     private javax.swing.JPanel hide;
     private javax.swing.JTextField idVen;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField id_categoriatxt;
+    private javax.swing.JTextField id_categoriatxt2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2550,14 +2753,20 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
+    private javax.swing.JLabel jLabel94;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel96;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
@@ -2589,27 +2798,25 @@ public class Ventana_admin extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTabbedPane jTabbedPane7;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
     private javax.swing.JTextField marcatxt1;
     private javax.swing.JTextField marcatxt2;
+    private javax.swing.JTextField marcatxt3;
     private javax.swing.JTextField mentoVen;
     private javax.swing.JTextField mentoVen1;
     private javax.swing.JTextField montoIntxt;
     private javax.swing.JTextField montoIntxt1;
     private javax.swing.JTextField monto_f;
-    private javax.swing.JTextField nom_categoriatxt;
     private javax.swing.JTextField nom_categoriatxt1;
+    private javax.swing.JTextField nombreMaterial_txt;
     private javax.swing.JTextField nombre_materialtxt;
     private javax.swing.JTextField nombre_materialtxt1;
     private javax.swing.JTextField precioVenDtxt;
     private javax.swing.JTextField rfc_proveedortxt;
+    private javax.swing.JTextField rfc_proveedortxt1;
     private javax.swing.JTextField stocktxt;
     private javax.swing.JTextField stocktxt1;
+    private javax.swing.JTextField stocktxt2;
     // End of variables declaration//GEN-END:variables
 }
