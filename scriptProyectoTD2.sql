@@ -78,12 +78,6 @@ create table Detalle_Venta(
 
 );
 
-create table Usuarios(
-	idUsuario varchar NOT NULL, 
-	nombreUsu varchar NOT NULL,
-	contraUsu varchar NOT NULL,
-	primary key (idUsuario)
-);
 
 --comanderia SQL necesaria--
 
