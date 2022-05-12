@@ -40,7 +40,7 @@ create table Materiales(
 	nombre varchar NOT NULL,
 	precio_venta numeric(10,2) NOT NULL constraint precio_ventaInvalido check(precio_venta > 0 ),
 	marca varchar NOT NULL,
-	stock integer,
+	stock integer, --se permite la entrada de ceros ya que un stock principal se inicia en cero
 	primary key(codigo_barras),
 	foreign key(id_categoria) references Categoria on delete cascade
 );
@@ -62,7 +62,7 @@ create table Detalle_Compra(
 
 create table Venta(
 	id_venta integer NOT NULL GENERATED ALWAYS AS IDENTITY,
-	monto_final numeric(10,2) NOT NULL constraint monto_finalInvalido check (monto_final > 0),
+	monto_final numeric(10,2), --se permite la entrada de ceros debido a que no se puede empezar una compra con otro valor
 	fecha_venta date NOT NULL,
 	primary key(id_venta)
 );
@@ -72,7 +72,7 @@ create table Detalle_Venta(
 	id_venta integer NOT NULL,
 	codigo_barras varchar NOT NULL,
 	cantidad integer NOT NULL constraint cantidad_invalido check (cantidad > 0),
-	precio_VDTV numeric(10,2) NOT NULL constraint precio_VDTV_Invalido check(precio_VDTV > 0 ),
+	montoFinal_XVD numeric(10,2), --monto final por venta diaria
 	primary key(id_venta, cns),
 	foreign key(codigo_barras) references Materiales on delete cascade
 
